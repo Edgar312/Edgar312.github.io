@@ -238,37 +238,65 @@ nav button:hover {
   transform: rotateY(-180deg); 
 }
 
-
 @media (max-width: 900px) {
-
   body {
     flex-direction: column;
+    overflow-y: auto; /* Permite scroll vertical si el contenido es largo */
   }
 
   .sidebar {
     width: 100%;
-    padding: 60px 30px;
+    padding: 40px 20px;
+    text-align: center;
+  }
+
+  nav {
+    margin-top: 30px;
+    align-items: center; /* Centra los botones en móvil */
   }
 
   .viewer {
     width: 100%;
-    padding: 40px 0 100px 0;
-    perspective: 2000px; /* mantenemos 3D */
+    padding: 20px 0 100px 0;
+    perspective: 1500px; /* Reducimos perspectiva para móviles */
   }
 
   .book {
-    width: 90%;
-    max-width: 380px;
-    height: 500px; /* 🔥 reducimos tamaño */
+    width: 320px; /* Ancho fijo más pequeño para que quepa al abrirse */
+    height: 480px; 
+    margin: 0 auto;
+    left: -15px; /* Compensa el eje de giro */
   }
 
+  /* 🔥 El truco: En móvil no lo movemos tanto a la derecha para que no choque con el borde */
   .book.open {
-    transform: translateX(35%); /* ajustamos desplazamiento */
+    transform: translateX(15%) scale(0.9); 
   }
 
   .page-content {
-    padding: 30px;
+    padding: 25px 20px;
   }
 
+  .page-content h2 {
+    font-size: 18px;
+  }
+
+  .page-content p {
+    font-size: 13px;
+  }
+
+  .profile-img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .img-grid img {
+    height: 120px; /* Imágenes más pequeñas en móvil */
+  }
+
+  .close-btn {
+    right: 20px;
+    bottom: 20px;
+  }
 }
 

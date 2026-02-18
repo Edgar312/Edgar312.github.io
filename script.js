@@ -28,49 +28,51 @@ const data = {
 
 function openProject(id) {
   const item = data[id];
+  const isMobile = window.innerWidth <= 900;
 
-  if (id === 'about') {
+  if (isMobile) {
     leftContent.innerHTML = `
-      <img src="${item.images[0]}" class="profile-img" onerror="this.src='https://via.placeholder.com/150'">
-      <h2>${item.title}</h2>
-      <p>${item.text}</p>
-    `;
-    rightContent.innerHTML = `<p style="margin-top: 100px; font-style: italic; opacity: 0.5;">"I build solutions that combine software, systems thinking, and real-world usability.I enjoy taking ownership of projects from concept to deployment, handling architecture, design, and implementation."</p>`;
-  } 
-  else if (id === 'animal') {
-    leftContent.innerHTML = `
-      <h2>${item.title}</h2>
-      <p>${item.text}</p>
-    `;
-    rightContent.innerHTML = `
-      <div class="single-img">
-        <img src="${item.images[0]}" onerror="this.src='https://via.placeholder.com/700x450'">
+      <div id="mobile-step-1">
+        <h2>${item.title}</h2>
+        ${id === 'about' ? `<img src="${item.images[0]}" class="profile-img">` : ''}
+        <p>${item.text}</p>
+        <button class="nav-btn" onclick="document.getElementById('mobile-step-1').style.display='none'; document.getElementById('mobile-step-2').style.display='block';">
+          VER FOTOS →
+        </button>
+      </div>
+      
+      <div id="mobile-step-2" style="display:none;">
+        <button class="nav-btn" onclick="document.getElementById('mobile-step-2').style.display='none'; document.getElementById('mobile-step-1').style.display='block';">
+          ← VOLVER AL TEXTO
+        </button>
+        <div class="img-grid" style="margin-top:20px;">
+          ${item.images.map(img => `<img src="${img}" onerror="this.src='https://via.placeholder.com/400x200'">`).join('')}
+        </div>
       </div>
     `;
-  } 
-  else {
-    leftContent.innerHTML = `
-      <h2>${item.title}</h2>
-      <p>${item.text}</p>
-    `;
-    rightContent.innerHTML = `
-      <div class="img-grid">
-        <img src="${item.images[0]}" onerror="this.src='https://via.placeholder.com/400x200'">
-        <img src="${item.images[1]}" onerror="this.src='https://via.placeholder.com/400x200'">
-      </div>
-    `;
+    rightContent.innerHTML = ""; 
+    
+  } else {
+    if (id === 'about') {
+      leftContent.innerHTML = `
+        <img src="${item.images[0]}" class="profile-img" onerror="this.src='https://via.placeholder.com/150'">
+        <h2>${item.title}</h2>
+        <p>${item.text}</p>`;
+      rightContent.innerHTML = `<p style="margin-top: 100px; font-style: italic; opacity: 0.5;">"I build solutions..."</p>`;
+    } 
+    else if (id === 'animal') {
+      leftContent.innerHTML = `<h2>${item.title}</h2><p>${item.text}</p>`;
+      rightContent.innerHTML = `<div class="single-img"><img src="${item.images[0]}"></div>`;
+    } 
+    else {
+      leftContent.innerHTML = `<h2>${item.title}</h2><p>${item.text}</p>`;
+      rightContent.innerHTML = `
+        <div class="img-grid">
+          <img src="${item.images[0]}">
+          <img src="${item.images[1]}">
+        </div>`;
+    }
   }
 
   book.classList.add("open");
-}
-
-
-function closeBook() {
-  book.classList.remove("open");
-}
-
-function toggleBook() {
-  if (!book.classList.contains("open")) {
-    openProject('about');
-  }
 }

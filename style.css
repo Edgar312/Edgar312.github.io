@@ -226,58 +226,83 @@ nav button:hover {
 .book.open .cover { 
   transform: rotateY(-180deg); 
 }
-
 @media (max-width: 900px) {
- 
-  .viewer {
-    position: relative;
-    z-index: 10;
-    padding-top: 20px;
+  body {
+    flex-direction: column;
+    overflow-x: hidden;
   }
 
- 
-  .book.open {
-    transform: translateX(0) scale(1.1); 
-    width: 95vw;
-    height: 80vh;
-    z-index: 100;
-  }
-
-
-  .book.open .cover {
-    transform: rotateY(-180deg);
-    opacity: 0; 
-    pointer-events: none;
-  }
-
-  .inner-page, .cover-back {
-    width: 100% !important;
-    left: 0 !important;
-    border-radius: 8px !important;
-  }
-
-  .nav-controls {
-    display: flex;
-    justify-content: space-between;
-    padding: 15px;
-    background: var(--paper);
-    border-top: 1px solid #eee;
-    position: absolute;
-    bottom: 0;
+  .sidebar {
     width: 100%;
+    padding: 30px 20px;
+    text-align: center;
   }
 
-.nav-btn {
-  background: var(--leather);
-  color: var(--gold);
-  border: 1px solid var(--gold);
-  padding: 10px 20px;
-  border-radius: 4px;
-  font-family: 'Inter', sans-serif;
-  font-size: 12px;
-  letter-spacing: 1px;
-  cursor: pointer;
-  margin-top: 20px;
-  width: 100%; 
-}
+  .viewer {
+    width: 100%;
+    padding: 0;
+    perspective: none; 
+  }
+
+  .book {
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    transform: none !important; 
+    position: fixed; 
+    top: 0;
+    left: 0;
+    display: none; 
+    z-index: 999;
+  }
+
+  .book.open {
+    display: block;
+    background: var(--paper);
+  }
+
+  
+  .book.open .cover {
+    display: none;
+  }
+
+  .book-edge {
+    display: none; 
+  }
+
+  .inner-page {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow-y: auto;
+    border-radius: 0;
+  }
+
+  .page-content {
+    padding: 40px 25px 100px 25px;
+  }
+
+  .nav-btn {
+    background: var(--leather);
+    color: var(--gold);
+    border: none;
+    padding: 15px;
+    width: 100%;
+    margin: 20px 0;
+    border-radius: 8px;
+    font-weight: bold;
+  }
+
+  .close-btn {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #e0e0e0;
+    padding: 20px;
+    text-align: center;
+    font-size: 14px;
+    opacity: 1;
+    z-index: 1000;
+  }
 }

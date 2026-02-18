@@ -19,8 +19,6 @@ body {
 }
 
 
-
-
 .sidebar { 
   width: 30%; 
   padding: 100px 60px;
@@ -47,262 +45,87 @@ nav {
 }
 
 nav button {
-  background: none;
-  border: none; 
-  font-size: 15px; 
-  color: var(--text);
-  text-align: left; 
-  cursor: pointer; 
-  opacity: 0.5; 
-  transition: 0.4s ease;
+  background: none; border: none; font-size: 15px; color: var(--text);
+  text-align: left; cursor: pointer; opacity: 0.5; transition: 0.4s ease;
 }
 
-nav button:hover { 
-  opacity: 1; 
-  transform: translateX(5px); 
-}
+nav button:hover { opacity: 1; transform: translateX(5px); }
 
-
-
+/* VIEWER & BOOK (Desktop) */
 .viewer { 
-  width: 70%; 
-  display: flex; 
-  justify-content: center; 
-  align-items: flex-start;
-  padding-top: 100px;
-  perspective: 2500px; 
+  width: 70%; display: flex; justify-content: center; align-items: flex-start;
+  padding-top: 100px; perspective: 2500px; 
 }
-
 
 .book {
-  position: relative; 
-  width: 420px; 
-  height: 560px;
-  max-width: 90%;
-  transform-style: preserve-3d; 
-  transition: transform 1s cubic-bezier(0.6, 0, 0.4, 1);
+  position: relative; width: 420px; height: 560px;
+  transform-style: preserve-3d; transition: transform 1s cubic-bezier(0.6, 0, 0.4, 1);
 }
 
-
-
 .book-edge {
-  position: absolute; 
-  inset: -5px -2px -5px -5px;
-  background: var(--leather); 
-  border-radius: 4px 12px 12px 4px;
-  transform: translateZ(-5px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  position: absolute; inset: -5px -2px -5px -5px;
+  background: var(--leather); border-radius: 4px 12px 12px 4px;
+  transform: translateZ(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.2);
 }
 
 .cover {
-  position: absolute; 
-  inset: 0; 
-  transform-origin: left;
-  transform-style: preserve-3d; 
-  transition: transform 1.2s cubic-bezier(0.6, 0, 0.4, 1);
-  z-index: 5; 
-  cursor: pointer;
+  position: absolute; inset: 0; transform-origin: left;
+  transform-style: preserve-3d; transition: transform 1.2s cubic-bezier(0.6, 0, 0.4, 1);
+  z-index: 5; cursor: pointer;
 }
 
 .cover-front {
-  position: absolute; 
-  inset: 0; 
-  backface-visibility: hidden;
-  background: var(--leather); 
-  border-radius: 0 8px 8px 0;
-  display: flex; 
-  align-items: center; 
-  justify-content: center;
+  position: absolute; inset: 0; backface-visibility: hidden;
+  background: var(--leather); border-radius: 0 8px 8px 0;
+  display: flex; align-items: center; justify-content: center;
 }
 
-.cover-title { 
-  color: var(--gold); 
-  font-family: 'Playfair Display'; 
-  font-size: 22px; 
-  letter-spacing: 4px; 
-  opacity: 0.8; 
-}
+.cover-title { color: var(--gold); font-family: 'Playfair Display'; font-size: 22px; letter-spacing: 4px; }
 
 .cover-back {
-  position: absolute; 
-  inset: 0; 
-  backface-visibility: hidden;
-  background: var(--paper); 
-  transform: rotateY(180deg);
-  border-radius: 8px 0 0 8px; 
-  border-right: 1px solid rgba(0,0,0,0.05);
+  position: absolute; inset: 0; backface-visibility: hidden;
+  background: var(--paper); transform: rotateY(180deg);
+  border-radius: 8px 0 0 8px; border-right: 1px solid rgba(0,0,0,0.05);
 }
 
 .inner-page {
-  position: absolute; 
-  inset: 0; 
-  background: var(--paper);
-  border-radius: 0 8px 8px 0; 
-  z-index: 1;
+  position: absolute; inset: 0; background: var(--paper);
+  border-radius: 0 8px 8px 0; z-index: 1;
 }
 
-.page-content {
-  padding: 50px; 
-  height: 100%; 
-  overflow-y: auto;
-  scrollbar-width: none; 
-}
-
+.page-content { padding: 50px; height: 100%; overflow-y: auto; scrollbar-width: none; }
 .page-content::-webkit-scrollbar { display: none;}
 
-.page-content h2 { 
-  font-family: 'Playfair Display'; 
-  font-size: 24px; 
-  margin-bottom: 20px; 
-  font-weight: 500; 
-}
-
-.page-content p {
-  font-size: 14px; 
-  line-height: 1.8; 
-  color: #444; 
-}
-
-
-
-.profile-img {
-  width: 110px; 
-  height: 110px; 
-  border-radius: 50%;
-  object-fit: cover; 
-  display: block; 
-  margin: 0 auto 25px auto;
-  border: 2px solid var(--gold);
-}
-
-.img-grid {
-  display: flex; 
-  flex-direction: column; 
-  gap: 15px; 
-  margin-top: 15px; 
-}
-
-.img-grid img { 
-  width: 100%; 
-  height: 180px; 
-  object-fit: cover; 
-  border-radius: 4px; 
-  box-shadow: 0 5px 15px rgba(0,0,0,0.08); 
-}
-
-.single-img {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-}
-
-.single-img img {
-  width: 100%;
-  max-height: 420px;
-  object-fit: contain;
-  border-radius: 6px;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
-}
+.book.open { transform: translateX(45%); }
+.book.open .cover { transform: rotateY(-180deg); }
 
 .close-btn {
-  position: absolute; 
-  bottom: 30px; 
-  right: 40px;
-  background: none; 
-  border: none; 
-  font-size: 10px; 
-  letter-spacing: 1px;
-  cursor: pointer; 
-  opacity: 0.3; 
-  font-weight: 600;
+  position: absolute; bottom: 30px; right: 40px;
+  background: none; border: none; font-size: 10px; font-weight: 600;
+  cursor: pointer; opacity: 0.4; letter-spacing: 1px;
 }
 
 
-.book.open { 
-  transform: translateX(45%); 
-}
-
-.book.open .cover { 
-  transform: rotateY(-180deg); 
-}
 @media (max-width: 900px) {
-  body {
-    flex-direction: column;
-    overflow-x: hidden;
-  }
-
-  .sidebar {
-    width: 100%;
-    padding: 30px 20px;
-    text-align: center;
-  }
-
-  .viewer {
-    width: 100%;
-    padding: 0;
-    perspective: none; 
-  }
+  body { flex-direction: column; }
+  .sidebar { width: 100%; padding: 40px 20px; text-align: center; }
+  .viewer { width: 100%; padding: 0; perspective: none; }
 
   .book {
-    width: 100%;
-    height: auto;
-    min-height: 100vh;
-    transform: none !important; 
-    position: fixed; 
-    top: 0;
-    left: 0;
-    display: none; 
-    z-index: 999;
+    display: none; position: fixed; top: 0; left: 0;
+    width: 100vw; height: 100vh; background: var(--paper);
+    z-index: 9999; transform: none !important;
   }
 
-  .book.open {
-    display: block;
-    background: var(--paper);
-  }
+  .book.open { display: flex; }
+  .cover, .book-edge { display: none !important; }
 
-  
-  .book.open .cover {
-    display: none;
-  }
-
-  .book-edge {
-    display: none; 
-  }
-
-  .inner-page {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    overflow-y: auto;
-    border-radius: 0;
-  }
-
-  .page-content {
-    padding: 40px 25px 100px 25px;
-  }
-
-  .nav-btn {
-    background: var(--leather);
-    color: var(--gold);
-    border: none;
-    padding: 15px;
-    width: 100%;
-    margin: 20px 0;
-    border-radius: 8px;
-    font-weight: bold;
-  }
+  .inner-page { width: 100%; height: 100%; border-radius: 0; }
+  .page-content { padding: 40px 25px 120px 25px; }
 
   .close-btn {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: #e0e0e0;
-    padding: 20px;
-    text-align: center;
-    font-size: 14px;
-    opacity: 1;
-    z-index: 1000;
+    position: fixed; bottom: 0; left: 0; width: 100%;
+    background: white; padding: 20px; border-top: 1px solid #ddd;
+    opacity: 1; color: var(--leather); font-size: 14px; text-align: center;
   }
 }

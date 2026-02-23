@@ -11,7 +11,7 @@ const data = {
   rally: {
     title: "Innovation Rally / Latin America",
     text: "Participated in an international Latin American innovation competition focused on solving real-world problems. Our project addressed fire prevention in small and remote villages with limited access to technology.The solution used low-cost sensors to detect gases produced by fires, sending real-time alerts with location data to authorities while activating local alarms in the village. Each prototype cost approximately 300–600 MXN.I worked as a full-stack developer, contributing to the application, system design, prototyping, and technical documentation. The project was awarded first place for its social impact and feasibility.",
-    images: ["rally.png", "RALLY.png"]
+    images: ["rallyy.png", "RALLY.png"]
   },
   animal: {
   title: "Animal Care Website",
@@ -74,3 +74,4 @@ function toggleBook() {
     openProject('about');
   }
 }
+
